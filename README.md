@@ -16,7 +16,13 @@ O script `install-rotinas-mkauth.sh`:
 Comando unico:
 
 ```bash
-git clone https://github.com/provedorconsult/mkauth-scripts.git && cd mkauth-scripts && chmod +x install-rotinas-mkauth.sh && sudo ./install-rotinas-mkauth.sh
+git clone https://github.com/provedorconsult/mkauth-scripts.git && cd mkauth-scripts && chmod +x install-rotinas-mkauth.sh && ./install-rotinas-mkauth.sh
+```
+
+Conferir se o cron foi criado:
+
+```bash
+cat /etc/cron.d/limpar-boletos-excluidos-mkauth /etc/cron.d/restart-php-api-mkauth
 ```
 
 Cron da limpeza de boletos:

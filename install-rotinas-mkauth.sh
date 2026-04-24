@@ -3,7 +3,7 @@ set -e
 
 if [ "$(id -u)" -ne 0 ]; then
   echo "Execute como root:"
-  echo "sudo $0"
+  echo "./install-rotinas-mkauth.sh"
   exit 1
 fi
 
