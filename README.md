@@ -2,25 +2,33 @@
 
 Scripts simples para rotinas operacionais em servidores MKAuth.
 
-## Limpeza de boletos excluidos
+## Instalador de rotinas
 
-O script `install-limpeza-boletos-mkauth.sh`:
+O script `install-rotinas-mkauth.sh`:
 
 - cria `/usr/local/sbin/limpar-boletos-excluidos-mkauth.sh`
 - cria o cron em `/etc/cron.d/limpar-boletos-excluidos-mkauth`
 - agenda a limpeza para rodar a cada 6 horas
+- cria o cron em `/etc/cron.d/restart-php-api-mkauth`
+- agenda o comando `service php-api restart` para rodar a cada 4 horas
 - executa uma limpeza imediatamente apos a instalacao
 
 Comando unico:
 
 ```bash
-git clone https://github.com/provedorconsult/mkauth-scripts.git && cd mkauth-scripts && chmod +x install-limpeza-boletos-mkauth.sh && sudo ./install-limpeza-boletos-mkauth.sh
+git clone https://github.com/provedorconsult/mkauth-scripts.git && cd mkauth-scripts && chmod +x install-rotinas-mkauth.sh && sudo ./install-rotinas-mkauth.sh
 ```
 
-O cron criado roda todos os dias em:
+Cron da limpeza de boletos:
 
 ```cron
 0 */6 * * * root /usr/local/sbin/limpar-boletos-excluidos-mkauth.sh >/dev/null 2>&1
+```
+
+Cron do restart do php-api:
+
+```cron
+0 */4 * * * root service php-api restart >/dev/null 2>&1
 ```
 
 Comandos executados na limpeza:
