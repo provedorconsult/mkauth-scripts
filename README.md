@@ -13,6 +13,21 @@ O script `install-rotinas-mkauth.sh`:
 - agenda o comando `service php-api restart` para rodar a cada 4 horas
 - executa uma limpeza imediatamente apos a instalacao
 
+## Debian Buster
+
+Se o servidor ainda usa Debian Buster e o `apt update` nao funciona, atualize o `sources.list` para usar o archive do Debian:
+
+```bash
+echo "deb http://archive.debian.org/debian buster main contrib non-free" > /etc/apt/sources.list
+```
+
+Depois atualize os pacotes e instale o Git:
+
+```bash
+apt -y update
+apt -y install git
+```
+
 Comando unico:
 
 ```bash
